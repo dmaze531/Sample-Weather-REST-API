@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>GET</http_method>
+        <name>Fake forecast</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+	var pathParams = request.pathParams;
+	var dateStr = pathParams.date;
+	
+    var forecast = {};
+	forecast.units = 'C';
+	forecast.temp = {};
+	forecast.temp.hi = 22;
+	forecast.temp.low = 12;
+	forecast.date = dateStr;
+	
+	response.setBody(forecast);
+	response.setContentType('application/json');
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_66238_weather/forecast/{date}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/{date}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>false</requires_authentication>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-21 18:56:55</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>9e4693cf0f6532007500cbdce1050e42</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Fake forecast</sys_name>
+        <sys_package display_value="Weather" source="x_66238_weather">fe069b8f0f6532007500cbdce1050ecd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Weather">fe069b8f0f6532007500cbdce1050ecd</sys_scope>
+        <sys_update_name>sys_ws_operation_9e4693cf0f6532007500cbdce1050e42</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-03-21 19:17:25</sys_updated_on>
+        <web_service_definition display_value="Weather forecast">3a2613cf0f6532007500cbdce1050ea9</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
